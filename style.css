@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #242948;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  background-color: #1e223d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.input-field {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.add-btn {
+  background-color: #7cb518;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.add-btn:hover {
+  background-color: lawngreen;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.placeholder-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Styling for todo items */
+.todo-details {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.todo-due,
+.todo-time {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 2px;
+}
+
+.placeholder-image {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .todo-item {
+    flex-direction: column;
+  }
+
+  .todo-details {
+    margin-top: 10px;
+  }
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .todo-image {
+    flex: none;
+    margin-right: 0;
+  }
+
+  .todo-details {
+    width: 100%;
+    order: 1;
+  }
+
+  .todo-actions {
+    width: 100%;
+    order: 2;
+    text-align: left;
+  }
+}
