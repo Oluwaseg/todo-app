@@ -8,13 +8,6 @@ if (storedTodoList) {
 }
 
 function renderTodoList() {
-  let todoListHTML = "";
-
-  if (todoList.length === 0) {
-    todoListHTML = "<p>No todos yet. Add some!</p>";
-  } else {
-     let todoListHTML = "";
-
   if (todoList.length === 0) {
     todoListHTML = "<p>No todos yet. Add some!</p>";
   } else {
