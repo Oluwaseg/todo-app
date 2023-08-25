@@ -49,7 +49,7 @@ function addTodo() {
   const time = timeInputElement.value;
 
   let date = new Date()
-  let month = date.getUTCMonth()
+  let month = date.getMonth()
   if (month != "12" && month != "11") {
     month = `0${month + 1}`
   } else {
@@ -62,6 +62,7 @@ function addTodo() {
     let date2 = new Date(d2).getTime();
     if (date1 < date2) {
       alert("The due date is invalid");
+      console.log("invalid")
       return;
     } else if (date1 > date2) {
       todoList.push({
@@ -69,6 +70,7 @@ function addTodo() {
         dueDate,
         time,
       });
+      console.log("valid")
     }
   };
 
