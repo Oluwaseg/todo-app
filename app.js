@@ -61,7 +61,6 @@ function addTodo() {
     let date2 = new Date(d2).getTime();
     if (date1 < date2) {
       alert("The due date is invalid");
-      console.log("invalid")
       return;
     } else if (date1 > date2) {
       todoList.push({
