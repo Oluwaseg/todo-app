@@ -69,7 +69,6 @@ function addTodo() {
         dueDate,
         time,
       });
-      console.log("valid")
     }
   };
 
