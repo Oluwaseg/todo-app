@@ -48,16 +48,40 @@ function addTodo() {
   const dueDate = dateInputElement.value;
   const time = timeInputElement.value;
 
+  let date = new Date()
+  let month = date.getUTCMonth()
+  if (month != "12" && month != "11") {
+    month = `0${month + 1}`
+  } else {
+    month += 1
+  }
+
+  let currentDate = `${date.getFullYear()}-${month}-${date.getDate()}`
+  const compareDates = (d1, d2) => {
+    let date1 = new Date(d1).getTime();
+    let date2 = new Date(d2).getTime();
+    console.log(time1 < time2);
+    if (date1 < date2) {
+      alert("The due date is invalid");
+      return;
+    } else if (date1 > date2) {
+      todoList.push({
+        name,
+        dueDate,
+        time,
+      });
+    }
+  };
+
+
+
   if (name.trim() === "" || dueDate.trim() === "" || time.trim() === "") {
     alert("Please fill in all fields before adding a new todo.");
     return;
   }
 
-  todoList.push({
-    name,
-    dueDate,
-    time,
-  });
+  compareDates(dueDate, currentDate)
+
 
   // Save the updated todoList to local storage
   localStorage.setItem("todoList", JSON.stringify(todoList));
