@@ -13,8 +13,12 @@ function renderTodoList() {
   if (todoList.length === 0) {
     todoListHTML = "<p>No todos yet. Add some!</p>";
   } else {
-    for (let i = 0; i < todoList.length; i++) {
-      const todoObject = todoList[i];
+     let todoListHTML = "";
+
+  if (todoList.length === 0) {
+    todoListHTML = "<p>No todos yet. Add some!</p>";
+  } else {
+    todoList.forEach(function (todoObject, index) {
       const { name, dueDate, time } = todoObject;
       const placeholderImage = name.slice(0, 2).toUpperCase();
       const html = `
@@ -28,12 +32,12 @@ function renderTodoList() {
             <div class="todo-time">${time}</div>
           </div>
           <div class="todo-actions">
-            <button onclick="deleteTodo(${i})" class="delete-btn">Delete</button>
+            <button onclick="deleteTodo(${index})" class="delete-btn">Delete</button>
           </div>
         </div>
       `;
       todoListHTML += html;
-    }
+    });
   }
 
   document.querySelector(".js-todo-list").innerHTML = todoListHTML;
