@@ -7,6 +7,12 @@ if (storedTodoList) {
   renderTodoList();
 }
 
+function toggleTodoStatus(index) {
+  todoList[index].completed = !todoList[index].completed;
+  localStorage.setItem("todoList", JSON.stringify(todoList));
+  renderTodoList();
+}
+
 function renderTodoList() {
   let todoListHTML = "";
 
@@ -14,19 +20,25 @@ function renderTodoList() {
     todoListHTML = "<p>No todos yet. Add some!</p>";
   } else {
     todoList.forEach(function (todoObject, index) {
-      const { name, dueDate, time } = todoObject;
+      const { name, dueDate, time, completed } = todoObject;
       const placeholderImage = name.slice(0, 2).toUpperCase();
+
       const html = `
-      <div class="todo-item">
+        <div class="todo-item ${completed ? "completed" : ""}">
           <div class="todo-image">
-          <div class="placeholder-image">${placeholderImage}</div>
+            <div class="placeholder-image">${placeholderImage}</div>
           </div>
           <div class="todo-details">
-            <div class="todo-name">${name}</div>
-            <div class="todo-due">${dueDate}</div>
-            <div class="todo-time">${time}</div>
+            <div class="todo-name ${completed ? "completed" : ""}">${name}</div>
+            <div class="todo-due ${
+              completed ? "completed" : ""
+            }">${dueDate}</div>
+            <div class="todo-time ${completed ? "completed" : ""}">${time}</div>
           </div>
           <div class="todo-actions">
+          <input type="checkbox" ${
+            completed ? "checked" : ""
+          } onclick="toggleTodoStatus(${index})">
             <button onclick="deleteTodo(${index})" class="delete-btn">Delete</button>
           </div>
         </div>
@@ -47,15 +59,15 @@ function addTodo() {
   const dueDate = dateInputElement.value;
   const time = timeInputElement.value;
 
-  let date = new Date()
-  let month = date.getMonth()
+  let date = new Date();
+  let month = date.getMonth();
   if (month != "12" && month != "11") {
-    month = `0${month + 1}`
+    month = `0${month + 1}`;
   } else {
-    month += 1
+    month += 1;
   }
 
-  let currentDate = `${date.getFullYear()}-${month}-${date.getDate()}`
+  let currentDate = `${date.getFullYear()}-${month}-${date.getDate()}`;
   const compareDates = (d1, d2) => {
     let date1 = new Date(d1).getTime();
     let date2 = new Date(d2).getTime();
@@ -71,15 +83,12 @@ function addTodo() {
     }
   };
 
-
-
   if (name.trim() === "" || dueDate.trim() === "" || time.trim() === "") {
     alert("Please fill in all fields before adding a new todo.");
     return;
   }
 
-  compareDates(dueDate, currentDate)
-
+  compareDates(dueDate, currentDate);
 
   // Save the updated todoList to local storage
   localStorage.setItem("todoList", JSON.stringify(todoList));
