@@ -154,3 +154,54 @@ body {
     text-align: left;
   }
 }
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.9;
+  color: #fff;
+}
+
+/* Style the checkbox input */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid #7cb518;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 8px;
+}
+
+/* Style the checked state of the checkbox */
+input[type="checkbox"]:checked {
+  background-color: #7cb518;
+}
+
+/* Style the checkbox indicator */
+input[type="checkbox"]::before {
+  content: "\f00c"; /* Checkmark icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+/* Show the checkmark icon when the checkbox is checked */
+input[type="checkbox"]:checked::before {
+  display: block;
+}
+
+/* Hide the default checkbox */
+input[type="checkbox"]::-webkit-check-box,
+input[type="checkbox"]::-moz-check-box {
+  display: none;
+}
