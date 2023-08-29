@@ -43,7 +43,7 @@ body {
 }
 
 .add-btn {
-  background-color: #7cb518;
+  background-color: #5ee962;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -54,7 +54,7 @@ body {
 }
 
 .add-btn:hover {
-  background-color: lawngreen;
+  background-color: #06a77d;
 }
 
 .todo-item {
@@ -70,7 +70,7 @@ body {
 }
 
 .delete-btn {
-  background-color: #dc3545;
+  background-color: #f30e25;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -81,7 +81,7 @@ body {
 }
 
 .delete-btn:hover {
-  background-color: #c82333;
+  background-color: #6b0b15;
 }
 
 .placeholder-image {
