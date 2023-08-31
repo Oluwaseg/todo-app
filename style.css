@@ -1,79 +1,217 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+/* Reset default margin and padding */
+/* body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #242948;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #fff;
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
 }
 
 .container {
-  max-width: 400px;
-  width: 100%;
-  background-color: #1e223d;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.form-group label {
-  font-weight: bold;
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #333;
 }
 
 .input-field {
-  width: 95%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  outline: none;
-}
-
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  font-size: 16px;
 }
 
 .add-btn {
-  background-color: #5ee962;
-  color: white;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  padding: 10px 20px;
   border-radius: 4px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: bold;
 }
 
 .add-btn:hover {
-  background-color: #06a77d;
+  background-color: #0056b3;
+}
+
+.todo-list {
+  margin-top: 20px;
 }
 
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0;
 }
 
-.todo-item:last-child {
-  border-bottom: none;
+.todo-details {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.todo-name {
+  flex-grow: 1;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #dc3545;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #c82333;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+} */
+/* Reset default margin and padding */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #242948;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #1e223d;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.input-field {
+  width: 98%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.add-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+.todo-list {
+  margin-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-details {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.todo-name {
+  flex-grow: 1;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
 }
 
 .delete-btn {
   background-color: #f30e25;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -84,84 +222,41 @@ body {
   background-color: #6b0b15;
 }
 
-.placeholder-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
+input[type="checkbox"] {
+  margin-right: 10px;
 }
 
-/* Styling for todo items */
-.todo-details {
-  flex: 0.5;
-  display: flex;
-  flex-direction: column;
-}
-
-.todo-name {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.todo-due,
-.todo-time {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 2px;
-}
-
-.placeholder-image {
-  width: 90px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007bff;
-  color: white;
-  font-size: 20px;
-  border-radius: 50%;
-}
-
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .todo-item {
-    flex-direction: column;
+  .container {
+    max-width: 100%;
+    border-radius: 0;
   }
 
-  .todo-details {
-    margin-top: 10px;
+  .form-group {
+    margin-bottom: 10px;
   }
+
+  .add-btn {
+    padding: 8px;
+  }
+
   .todo-item {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 10px;
-    gap: 10px;
   }
 
-  .todo-image {
-    flex: none;
-    margin-right: 0;
+  .input-field {
+    font-size: 14px;
   }
 
-  .todo-details {
-    width: 100%;
-    order: 1;
+  .todo-name {
+    font-size: 16px;
   }
-
-  .todo-actions {
-    width: 100%;
-    order: 2;
-    text-align: left;
+  .container {
+    max-width: 90%; /* Adjust the max-width as needed */
+    border-radius: 0;
   }
 }
-
-.completed {
-  text-decoration: line-through;
-  opacity: 0.9;
-  color: #fff;
-}
-
-/* Style the checkbox input */
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
