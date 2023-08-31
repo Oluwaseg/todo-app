@@ -27,10 +27,8 @@ A simple and responsive todo app that allows you to manage your tasks effectivel
 ### Usage
 
 - Enter the name of the task in the "Todo Name" field.
-- Select the due date in the "Due Date" field.
-- Choose the due time in the "Due Time" field.
 - Click the "Add Todo" button to add the task to your list.
-- View your todos with their names, due dates, and times.
+- View your todos with their names.
 - To delete a todo, click the "Delete" button next to it.
 
 ### Contributing
