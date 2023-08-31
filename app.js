@@ -14,37 +14,63 @@ function toggleTodoStatus(index) {
 }
 
 function renderTodoList() {
-  let todoListHTML = "";
+  const todoListContainer = document.querySelector(".js-todo-list");
+  todoListContainer.innerHTML = ""; // Clear the container first
 
   if (todoList.length === 0) {
-    todoListHTML = "<p>No todos yet. Add some!</p>";
+    todoListContainer.innerHTML = "<p>No todos yet. Add some!</p>";
   } else {
     todoList.forEach(function (todoObject, index) {
       const { name, dueDate, time, completed } = todoObject;
-      const placeholderImage = name.slice(0, 2).toUpperCase();
 
-      const html = `
-        <div class="todo-item ${completed ? "completed" : ""}">
-          <div class="todo-image">
-            <div class="placeholder-image">${placeholderImage}</div>
-          </div>
-          <div class="todo-details">
-            <div class="todo-name ${completed ? "completed" : ""}">${name}</div>
+      const todoItem = document.createElement("div");
+      todoItem.classList.add("todo-item");
+      if (completed) {
+        todoItem.classList.add("completed");
+      }
 
-          <div class="todo-actions">
-          <input type="checkbox" ${
-            completed ? "checked" : ""
-          } onclick="toggleTodoStatus(${index})">
-            <button onclick="deleteTodo(${index})" class="delete-btn">Delete</button>
-          </div>
-        </div>
-      `;
-      todoListHTML += html;
+      const todoDetails = document.createElement("div");
+      todoDetails.classList.add("todo-details");
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = completed;
+      checkbox.addEventListener("click", function () {
+        toggleTodoStatus(index);
+      });
+
+      const todoName = document.createElement("div");
+      todoName.classList.add("todo-name");
+      if (completed) {
+        todoName.classList.add("completed");
+      }
+      todoName.textContent = name;
+
+      const todoActions = document.createElement("div");
+      todoActions.classList.add("todo-actions");
+
+      const deleteButton = document.createElement("button");
+      deleteButton.classList.add("delete-btn");
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", function () {
+        deleteTodo(index);
+      });
+
+      todoDetails.appendChild(checkbox);
+      todoDetails.appendChild(todoName);
+      todoActions.appendChild(deleteButton);
+
+      todoItem.appendChild(todoDetails);
+      todoItem.appendChild(todoActions);
+
+      todoListContainer.appendChild(todoItem);
     });
   }
-
-  document.querySelector(".js-todo-list").innerHTML = todoListHTML;
 }
+
+// ... (other functions like addTodo and deleteTodo)
+
+// The rest of your code remains unchanged
 
 function addTodo() {
   const inputElement = document.querySelector(".js-name-input");
